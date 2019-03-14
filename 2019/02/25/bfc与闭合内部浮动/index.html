@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="闭合内部浮动的方法作为前端的好孩子，总会遇到一个经典不朽的问题：有几种闭合内部浮动的方法？ 1.在最后一个浮动元素的下面添加空白标签  1234&amp;lt;!-- 方法1 --&amp;gt;&amp;lt;div style=&quot;clean:both;&quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;!-- 方法2 --&amp;gt;&amp;lt;br clear=&quot;all&quot;&amp;gt; 2.父元素css样式设置 overflow: hid">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-25T10:35:39.358Z">
+<meta property="og:updated_time" content="2019-02-26T03:10:30.737Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="haslayout, bfc 闭合内部浮动">
 <meta name="twitter:description" content="闭合内部浮动的方法作为前端的好孩子，总会遇到一个经典不朽的问题：有几种闭合内部浮动的方法？ 1.在最后一个浮动元素的下面添加空白标签  1234&amp;lt;!-- 方法1 --&amp;gt;&amp;lt;div style=&quot;clean:both;&quot;&amp;gt;&amp;lt;/div&amp;gt;&amp;lt;!-- 方法2 --&amp;gt;&amp;lt;br clear=&quot;all&quot;&amp;gt; 2.父元素css样式设置 overflow: hid">
@@ -302,22 +302,31 @@
       
         <h3 id="闭合内部浮动的方法"><a href="#闭合内部浮动的方法" class="headerlink" title="闭合内部浮动的方法"></a>闭合内部浮动的方法</h3><p>作为前端的好孩子，总会遇到一个经典不朽的问题：有几种闭合内部浮动的方法？</p>
 <p>1.在最后一个浮动元素的下面添加空白标签<br>  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 方法1 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"clean:both;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 方法2 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span> <span class="attr">clear</span>=<span class="string">"all"</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>2.父元素css样式设置 <code>overflow: hidden;</code></p>
+<p>2.父元素css样式设置 <code>overflow: hidden;</code><br>  <font face="微软雅黑" size="2" color="red">注：</font><font face="微软雅黑" size="2">IE6不支持; 一旦子元素的大小超过父容器的大小，就会出显示问题</font><br>3.父元素css样式设置 <code>display: inline-block;</code><br>  <font face="微软雅黑" size="2" color="red">注：</font><font face="微软雅黑" size="2">若父元素使用margin: 0 auto实现居中时，display: inline-block使其转为行内元素，导致居中效果无效</font><br>4.父元素css样式设置 <code>position: absolute</code> or <code>position: fixed</code><br>  <font face="微软雅黑" size="2" color="red">注：</font><font face="微软雅黑" size="2">IE6不兼容; 使父元素脱离文档流，清除父元素的居中效果，且对后面的div等有类似于浮动的影响。好似关了一扇窗，却开了一道门，还是尽量不用的好</font><br>5.父元素css样式设置 <code>float：right</code> or <code>float: left</code><br>6.为父元素添加after伪类<br>  <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// IE8+或其他-方法1</span><br><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">" "</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">    <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br><span class="line">// IE8+或其他-方法2</span><br><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: table;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">" "</span>;</span><br><span class="line">    <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br><span class="line">//IE6、IE7</span><br><span class="line"><span class="selector-class">.clearfix</span> &#123;</span><br><span class="line">  *zoom: 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="闭合浮动的原理"><a href="#闭合浮动的原理" class="headerlink" title="闭合浮动的原理"></a>闭合浮动的原理</h3><p>在在整理的过程中，我们应该思考一下这背后的运行原理，否则的话，这些零碎的方法依靠硬记简直是伤害脑细胞和消磨青春的利器啊~~~<br>其实，上述方法主要采用了以下两种原理：</p>
 <ul>
-<li>IE 6不支持</li>
-<li>一旦子元素的大小超过父容器的大小，就会出显示问题<br>3.父元素css样式设置 <code>display: inline-block;</code></li>
-<li>若父元素使用margin: 0 auto实现居中时，display: inline-block使其转为行内元素，导致居中效果无效<br>4.父元素css样式设置 <code>position: absolute</code> or <code>position: fixed</code></li>
-<li>IE6不兼容</li>
-<li>使父元素脱离文档流，清除父元素的居中效果，且对后面的div等有类似于浮动的影响。好似关了一扇窗，却开了一道门，还是尽量不用的好<br>5.父元素css样式设置 <code>float：right</code> or <code>float: left</code><br>6.为父元素添加after伪类<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">// IE8+或其他-方法1</span><br><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">" "</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">overflow</span>: hidden;</span><br><span class="line">    <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br><span class="line">// IE8+或其他-方法2</span><br><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: table;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">" "</span>;</span><br><span class="line">    <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br><span class="line">//IE6、IE7</span><br><span class="line"><span class="selector-class">.clearfix</span> &#123;</span><br><span class="line">  *zoom: 1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
+<li>方法1 - clear</li>
+<li>方法2-6 - IE专有的hasLayout和W3C标准下的BFC </li>
 </ul>
-<h3 id="闭合浮动的原理"><a href="#闭合浮动的原理" class="headerlink" title="闭合浮动的原理"></a>闭合浮动的原理</h3><p>在在整理的过程中，我们应该思考一下这背后的运行原理，否则的话，这些零碎的方法依靠硬记简直是伤害脑细胞和消磨青春的利器啊~~~</p>
-<p>其实，这里主要应用了以下两种方法：</p>
-<p>1.clear(方法1)<br>2.IE专有的hasLayout和W3C标准下的BFC （方法2-6）</p>
-<p>这里主要对hasLayout和BFC（毕竟也是大咖呀）展开学习。<br>1 背景<br>  在IE中，使用layout（布局）概念控制元素的尺寸和定位。当一个元素的 hasLayout属性值为true时，我们说这个元素有一个布局（layout），当一个元素有一个布局时，它负责对自己和可能的子孙元素进行尺寸计算和定位</p>
-<p>2 闭合内部浮动的原理<br>  通过上述背景我们了解到，当对无layout的元素触发了hasLayout，会使其对自己和子孙元素进行计算，不管子孙元素是否存在浮动。</p>
-<p>3 触发hasLayout的方法</p>
-
+<p>这里主要对hasLayout和BFC（毕竟也是大咖呀）展开学习。</p>
+<h4 id="haslayout"><a href="#haslayout" class="headerlink" title="haslayout"></a>haslayout</h4><blockquote>
+<font face="微软雅黑" size="2">在IE中，使用layout（布局）概念控制元素的尺寸和定位。当一个元素的 hasLayout属性值为true时，我们说这个元素有一个布局（layout），当一个元素有一个布局时，它负责对自己和可能的子孙元素进行尺寸计算和定位</font>
+</blockquote>
+<h5 id="闭合内部浮动的原理"><a href="#闭合内部浮动的原理" class="headerlink" title="闭合内部浮动的原理"></a>闭合内部浮动的原理</h5><p>  通过上述背景我们了解到，当对无layout的元素触发了hasLayout，会使其对自己和子孙元素进行计算，不管子孙元素是否存在浮动。</p>
+<h5 id="触发hasLayout的方法"><a href="#触发hasLayout的方法" class="headerlink" title="触发hasLayout的方法"></a>触发hasLayout的方法</h5>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">position: absolute</span><br><span class="line"><span class="built_in">float</span>: left|right</span><br><span class="line">display: inline-block</span><br><span class="line">width: any value other than <span class="string">'auto'</span></span><br><span class="line">height: any value other than <span class="string">'auto'</span></span><br><span class="line">zoom: any value other than <span class="string">'normal'</span> （IE专用属性）</span><br><span class="line">writing-mode: tb-rl（IE专用属性）</span><br><span class="line">overflow: hidden|scroll|auto（只对IE 7及以上版本有效）</span><br><span class="line">overflow-x|-y: hidden|scroll|auto（只对IE 7及以上版本有效）</span><br></pre></td></tr></table></figure>
+<h4 id="BFC（Block-Formatting-Context，块级格式化上下文）"><a href="#BFC（Block-Formatting-Context，块级格式化上下文）" class="headerlink" title="BFC（Block Formatting Context，块级格式化上下文）"></a>BFC（Block Formatting Context，块级格式化上下文）</h4><blockquote>
+<font face="微软雅黑" size="2"> <font color="#f5871f">Block</font>：box(css的基本布局单位)的一种类型，由display: block | table | list-item控制<br><font color="#f5871f">Formatting context</font>：W3C CSS2.1 规范中的一个概念,表示页面的一个渲染区域，包含一系列渲染规则，用来控制元素及其子元素如何定位，以及与其他元素的作用关系<br><font color="#f5871f">BFC</font>：一个独立的渲染区域，只有Block-level box参与， 它规定了内部的Block-level Box如何布局，并且与这个区域外部毫不相干</font>
+</blockquote>
+<h5 id="渲染规则"><a href="#渲染规则" class="headerlink" title="渲染规则"></a>渲染规则</h5><ul>
+<li>内部的Box会在垂直方向，一个接一个地放置</li>
+<li>Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻Box的margin会发生重叠</li>
+<li>每个元素的margin box的左边， 与包含块border box的左边相接触(对于从左往右的格式化，否则相反)，即使存在浮动也是如此</li>
+<li>BFC的高度时，浮动元素也参与计算</li>
+<li>BFC的区域不会与float box重叠</li>
+<li>BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素，反之也如此</li>
+</ul>
+<h5 id="触发BFC的方法（与触发hasLayout的部分差别来源于浏览器版本问题）"><a href="#触发BFC的方法（与触发hasLayout的部分差别来源于浏览器版本问题）" class="headerlink" title="触发BFC的方法（与触发hasLayout的部分差别来源于浏览器版本问题）"></a>触发BFC的方法（与触发hasLayout的部分差别来源于浏览器版本问题）</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">position: absolute | fixed</span><br><span class="line"><span class="built_in">float</span>: left|right</span><br><span class="line">display: inline-block | table-cell | table-caption | flex | inline-flex</span><br><span class="line">overflow: hidden|scroll|auto</span><br><span class="line">overflow-x|-y: hidden|scroll|auto</span><br></pre></td></tr></table></figure>
+<font face="微软雅黑" size="2" color="red">注：</font><br><font face="微软雅黑" size="2">通过解读上述规则，可以发现，BFC除了可以解决闭合浮动的问题外，还可以解决以下问题：<br>- 闭合浮动<br>- 同一BFC下，margin重叠问题<br>- 两栏自适应（左定宽，右自适应）</font>
       
     </div>
     
@@ -356,6 +365,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/14/git常用命令/" rel="prev" title="git常用命令">
+                git常用命令 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -432,7 +445,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -478,7 +491,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#闭合内部浮动的方法"><span class="nav-number">1.</span> <span class="nav-text">闭合内部浮动的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭合浮动的原理"><span class="nav-number">2.</span> <span class="nav-text">闭合浮动的原理</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#闭合内部浮动的方法"><span class="nav-number">1.</span> <span class="nav-text">闭合内部浮动的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#闭合浮动的原理"><span class="nav-number">2.</span> <span class="nav-text">闭合浮动的原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#haslayout"><span class="nav-number">2.1.</span> <span class="nav-text">haslayout</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#闭合内部浮动的原理"><span class="nav-number">2.1.1.</span> <span class="nav-text">闭合内部浮动的原理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#触发hasLayout的方法"><span class="nav-number">2.1.2.</span> <span class="nav-text">触发hasLayout的方法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#BFC（Block-Formatting-Context，块级格式化上下文）"><span class="nav-number">2.2.</span> <span class="nav-text">BFC（Block Formatting Context，块级格式化上下文）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#渲染规则"><span class="nav-number">2.2.1.</span> <span class="nav-text">渲染规则</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#触发BFC的方法（与触发hasLayout的部分差别来源于浏览器版本问题）"><span class="nav-number">2.2.2.</span> <span class="nav-text">触发BFC的方法（与触发hasLayout的部分差别来源于浏览器版本问题）</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
