@@ -229,6 +229,131 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/05/元素拖拽/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/05/元素拖拽/" itemprop="url">元素拖拽</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-05T11:39:00+08:00">
+                2019-05-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="元素拖拽移动"><a href="#元素拖拽移动" class="headerlink" title="元素拖拽移动"></a>元素拖拽移动</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> moveToX = <span class="number">0</span></span><br><span class="line"><span class="keyword">var</span> moveToY = <span class="number">0</span></span><br><span class="line"><span class="keyword">var</span> disX = <span class="number">0</span></span><br><span class="line"><span class="keyword">var</span> disY = <span class="number">0</span></span><br><span class="line"><span class="keyword">var</span> target = <span class="literal">null</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">init</span> (<span class="params">query</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> dragElms = <span class="literal">null</span></span><br><span class="line">  dragElms = <span class="built_in">document</span>.querySelectorAll(query)</span><br><span class="line">  <span class="keyword">if</span> (!dragElms || !dragElms.length) &#123;</span><br><span class="line">    dragElms = <span class="literal">null</span></span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line">  &#125;</span><br><span class="line">  dragElms.forEach(<span class="function"><span class="params">elm</span> =&gt;</span> &#123;</span><br><span class="line">    elm.onmousedown = mouseDown</span><br><span class="line">  &#125;)</span><br><span class="line">  dragElms = <span class="literal">null</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mouseDown</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> event = e || <span class="built_in">window</span>.event</span><br><span class="line">  target = event.target || event.srcElement</span><br><span class="line">  disX = event.clientX - target.offsetLeft</span><br><span class="line">  disY = event.clientY - target.offsetTop</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 绑定事件到document,解决鼠标滑动过快到div外</span></span><br><span class="line">  <span class="built_in">document</span>.onmousemove = mouseMove</span><br><span class="line">  <span class="built_in">document</span>.onmouseup = mouseUp</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mouseMove</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> event = e || <span class="built_in">window</span>.event</span><br><span class="line">  moveToX = event.clientX - disX</span><br><span class="line">  moveToY = event.clientY - disY</span><br><span class="line">  target.style.left = <span class="string">`<span class="subst">$&#123;moveToX&#125;</span>px`</span></span><br><span class="line">  target.style.top = <span class="string">`<span class="subst">$&#123;moveToY&#125;</span>px`</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">mouseUp</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> event = e || <span class="built_in">window</span>.event</span><br><span class="line">  <span class="keyword">var</span> res = confirm(<span class="string">'确定移动到该位置？'</span>)</span><br><span class="line">  <span class="keyword">if</span> (!res) &#123;</span><br><span class="line">    target.style.left = <span class="number">0</span></span><br><span class="line">    target.style.top = <span class="number">0</span></span><br><span class="line">  &#125;</span><br><span class="line">  moveToX = <span class="number">0</span></span><br><span class="line">  moveToY = <span class="number">0</span></span><br><span class="line">  disX = <span class="number">0</span></span><br><span class="line">  disY = <span class="number">0</span></span><br><span class="line">  <span class="built_in">document</span>.onmousemove = <span class="literal">null</span></span><br><span class="line">  <span class="built_in">document</span>.onmouseup = <span class="literal">null</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">init(<span class="string">'div[class=dom_name]'</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="元素拖拽移动-有效域"><a href="#元素拖拽移动-有效域" class="headerlink" title="元素拖拽移动 + 有效域"></a>元素拖拽移动 + 有效域</h3><ul>
+<li>支持拖拽</li>
+<li>支持拖拽域合法性(自定义合法规则)判断</li>
+</ul>
+<p><a href="https://github.com/xiaowao/common-lib/tree/master/src/drag" target="_blank" rel="noopener">代码地址</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/05/移动自适应/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -628,6 +753,125 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/25/dom操作/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/25/dom操作/" itemprop="url">Dom增删改查隐藏技能</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-25T15:21:12+08:00">
+                2019-02-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="查询元素在视口中得绝对位置"><a href="#查询元素在视口中得绝对位置" class="headerlink" title="查询元素在视口中得绝对位置"></a>查询元素在视口中得绝对位置</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getAbsolutePos</span>(<span class="params">dom</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> curLeft = dom.offsetLeft || <span class="number">0</span></span><br><span class="line">  <span class="keyword">var</span> curTop = dom.offsetTop || <span class="number">0</span></span><br><span class="line">  <span class="keyword">while</span> (dom.offsetParent) &#123;</span><br><span class="line">    dom = dom.offsetParent</span><br><span class="line">    curLeft += dom.offsetLeft</span><br><span class="line">    curTop += dom.offsetTop</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> [curLeft, curTop]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/25/hello-world/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -789,7 +1033,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -802,7 +1046,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
