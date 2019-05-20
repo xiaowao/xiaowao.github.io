@@ -305,7 +305,7 @@
 <li>支持拖拽</li>
 <li>支持拖拽域合法性(自定义合法规则)判断</li>
 </ul>
-<p><img src="https://github.com/xiaowao/blog/tree/master/source/images/content/drag_1.png" alt="image"></p>
+<p><img src="https://github.com/xiaowao/blog/blob/master/source/images/content/drag_1.png" alt="image"></p>
 <p><a href="https://github.com/xiaowao/common-lib/tree/master/src/drag" target="_blank" rel="noopener">代码地址</a></p>
 
           
@@ -609,125 +609,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/25/dom操作/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/25/dom操作/" itemprop="url">Dom增删改查隐藏技能</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-25T15:21:12+08:00">
-                2019-02-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="查询元素在视口中得绝对位置"><a href="#查询元素在视口中得绝对位置" class="headerlink" title="查询元素在视口中得绝对位置"></a>查询元素在视口中得绝对位置</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getAbsolutePos</span>(<span class="params">dom</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> curLeft = dom.offsetLeft || <span class="number">0</span></span><br><span class="line">  <span class="keyword">var</span> curTop = dom.offsetTop || <span class="number">0</span></span><br><span class="line">  <span class="keyword">while</span> (dom.offsetParent) &#123;</span><br><span class="line">    dom = dom.offsetParent</span><br><span class="line">    curLeft += dom.offsetLeft</span><br><span class="line">    curTop += dom.offsetTop</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> [curLeft, curTop]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/25/bfc与闭合内部浮动/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -826,6 +707,125 @@
 </ul>
 <h5 id="触发BFC的方法（与触发hasLayout的部分差别来源于浏览器版本问题）"><a href="#触发BFC的方法（与触发hasLayout的部分差别来源于浏览器版本问题）" class="headerlink" title="触发BFC的方法（与触发hasLayout的部分差别来源于浏览器版本问题）"></a>触发BFC的方法（与触发hasLayout的部分差别来源于浏览器版本问题）</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">position: absolute | fixed</span><br><span class="line"><span class="built_in">float</span>: left|right</span><br><span class="line">display: inline-block | table-cell | table-caption | flex | inline-flex</span><br><span class="line">overflow: hidden|scroll|auto</span><br><span class="line">overflow-x|-y: hidden|scroll|auto</span><br></pre></td></tr></table></figure>
 <font face="微软雅黑" size="2" color="red">注：</font><br><font face="微软雅黑" size="2">通过解读上述规则，可以发现，BFC除了可以解决闭合浮动的问题外，还可以解决以下问题：<br>- 闭合浮动<br>- 同一BFC下，margin重叠问题<br>- 两栏自适应（左定宽，右自适应）</font>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/25/dom操作/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/25/dom操作/" itemprop="url">Dom增删改查隐藏技能</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-25T15:21:12+08:00">
+                2019-02-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="查询元素在视口中得绝对位置"><a href="#查询元素在视口中得绝对位置" class="headerlink" title="查询元素在视口中得绝对位置"></a>查询元素在视口中得绝对位置</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getAbsolutePos</span>(<span class="params">dom</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> curLeft = dom.offsetLeft || <span class="number">0</span></span><br><span class="line">  <span class="keyword">var</span> curTop = dom.offsetTop || <span class="number">0</span></span><br><span class="line">  <span class="keyword">while</span> (dom.offsetParent) &#123;</span><br><span class="line">    dom = dom.offsetParent</span><br><span class="line">    curLeft += dom.offsetLeft</span><br><span class="line">    curTop += dom.offsetTop</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> [curLeft, curTop]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           
         
       
