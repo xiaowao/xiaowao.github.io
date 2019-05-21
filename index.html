@@ -687,27 +687,31 @@
 <li>切换分支 <code>git checkout &lt;branchName&gt;</code></li>
 <li>重命名 <code>git branch -m &lt;oldBranchName&gt; &lt;newBranchName&gt;</code></li>
 <li>删除分支 <code>git branch -d &lt;branchName&gt;</code></li>
-<li><p>清理remotes/origin/pr/*分支(本地存在但线上已删除) <code>git remote prune origin</code></p>
-<h3 id="tag"><a href="#tag" class="headerlink" title="tag"></a>tag</h3></li>
-<li><p>查看 <code>git tag</code></p>
-</li>
+<li>清理remotes/origin/pr/*分支(本地存在但线上已删除) <code>git remote prune origin</code></li>
+</ul>
+<h3 id="tag"><a href="#tag" class="headerlink" title="tag"></a>tag</h3><ul>
+<li>查看 <code>git tag</code></li>
 <li>在commit上建tag <code>git tag &lt;tagName&gt; &lt;commitID&gt;</code></li>
 <li>新建 <code>git tag -a &lt;tagName&gt; -m &lt;commitText&gt;</code></li>
 <li>推送本地tag到线上 <code>git push origin &lt;tagName&gt;</code></li>
 <li>删除本地tag <code>git tag -d &lt;tagName&gt;</code></li>
 <li>删除线上tag <code>git push origin :refs/tags/&lt;tagName&gt;</code></li>
 </ul>
-<h3 id="git-config-–global-core-autocrlf"><a href="#git-config-–global-core-autocrlf" class="headerlink" title="git config –global core.autocrlf "></a>git config –global core.autocrlf <option></option></h3><ul>
+<h3 id="换行符"><a href="#换行符" class="headerlink" title="换行符"></a>换行符</h3><ul>
+<li>autocrlf <code>git config --global core.autocrlf &lt;option&gt;</code><ul>
 <li>false 提交和检出代码均不做转换</li>
 <li>true 提交代码时crlf转为lf,检出时lf转为crlf</li>
 <li>input 提交代码时crlf转为lf,检出时不转换</li>
 </ul>
-<p><b style="color: red">注</b>: crlf回车符,windows使用;lf换行符,linux和mac使用</p>
-<h3 id="git-config-–global-core-safecrlf"><a href="#git-config-–global-core-safecrlf" class="headerlink" title="git config –global core.safecrlf "></a>git config –global core.safecrlf <option></option></h3><ul>
+</li>
+<li>safecrlf <code>git config --global core.safecrlf &lt;option&gt;</code><ul>
 <li>false 允许提交包含混合换行符的文件</li>
 <li>true 拒绝提交包含混合换行符的文件</li>
 <li>warn 提交包含混合换行符的文件时给出警告</li>
 </ul>
+</li>
+</ul>
+<p><b style="color: red">注</b>: crlf回车符,windows使用;lf换行符,linux和mac使用</p>
 <h3 id="代理"><a href="#代理" class="headerlink" title="代理"></a>代理</h3><ul>
 <li>设置代理 <code>git config --global http(s).proxy &lt;addr&gt;</code></li>
 <li>取消代理 <code>git config --global --unset http(s).proxy</code></li>
@@ -720,7 +724,7 @@
 <li>keep:</li>
 </ul>
 </commitid></li>
-<li>修改某次提交,并生成新纪录存储修改 <code>git revert &lt;commitID&gt;</code></li>
+<li>修改某次提交，并生成新纪录存储修改 <code>git revert &lt;commitID&gt;</code></li>
 </ul>
 <h4 id="远程回滚"><a href="#远程回滚" class="headerlink" title="远程回滚"></a>远程回滚</h4><ol>
 <li>回滚本地代码</li>
