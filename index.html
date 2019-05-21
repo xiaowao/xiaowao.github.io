@@ -229,6 +229,125 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/21/日期函数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/21/日期函数/" itemprop="url">日期函数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-21T14:22:10+08:00">
+                2019-05-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/05/元素拖拽/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -559,128 +678,56 @@
       
         
           
-            <h3 id="分支重命名"><a href="#分支重命名" class="headerlink" title="分支重命名"></a>分支重命名</h3><p>git branch -m oldBranchName newBranchName</p>
-<h3 id="新建tag"><a href="#新建tag" class="headerlink" title="新建tag"></a>新建tag</h3><p>git tag -a tagName -m ‘comment’</p>
+            <h3 id="branch"><a href="#branch" class="headerlink" title="branch"></a>branch</h3><ul>
+<li>查看本地分支 <code>git branch -a</code></li>
+<li>查看远程库与本地分支 <code>git remote show origin</code></li>
+<li>新建分支 <code>git branch &lt;branchName&gt;</code></li>
+<li>根据tag新建分支 <code>git branch &lt;branchName&gt; &lt;tagName&gt;</code></li>
+<li>推送本地分支到线上 <code>git push origin &lt;branchName&gt;</code></li>
+<li>切换分支 <code>git checkout &lt;branchName&gt;</code></li>
+<li>重命名 <code>git branch -m &lt;oldBranchName&gt; &lt;newBranchName&gt;</code></li>
+<li>删除分支 <code>git branch -d &lt;branchName&gt;</code></li>
+<li><p>清理remotes/origin/pr/*分支(本地存在但线上已删除) <code>git remote prune origin</code></p>
+<h3 id="tag"><a href="#tag" class="headerlink" title="tag"></a>tag</h3></li>
+<li><p>查看 <code>git tag</code></p>
+</li>
+<li>在commit上建tag <code>git tag &lt;tagName&gt; &lt;commitID&gt;</code></li>
+<li>新建 <code>git tag -a &lt;tagName&gt; -m &lt;commitText&gt;</code></li>
+<li>推送本地tag到线上 <code>git push origin &lt;tagName&gt;</code></li>
+<li>删除本地tag <code>git tag -d &lt;tagName&gt;</code></li>
+<li>删除线上tag <code>git push origin :refs/tags/&lt;tagName&gt;</code></li>
+</ul>
+<h3 id="git-config-–global-core-autocrlf"><a href="#git-config-–global-core-autocrlf" class="headerlink" title="git config –global core.autocrlf "></a>git config –global core.autocrlf <option></option></h3><ul>
+<li>false 提交和检出代码均不做转换</li>
+<li>true 提交代码时crlf转为lf,检出时lf转为crlf</li>
+<li>input 提交代码时crlf转为lf,检出时不转换</li>
+</ul>
+<p><b style="color: red">注</b>: crlf回车符,windows使用;lf换行符,linux和mac使用</p>
+<h3 id="git-config-–global-core-safecrlf"><a href="#git-config-–global-core-safecrlf" class="headerlink" title="git config –global core.safecrlf "></a>git config –global core.safecrlf <option></option></h3><ul>
+<li>false 允许提交包含混合换行符的文件</li>
+<li>true 拒绝提交包含混合换行符的文件</li>
+<li>warn 提交包含混合换行符的文件时给出警告</li>
+</ul>
+<h3 id="代理"><a href="#代理" class="headerlink" title="代理"></a>代理</h3><ul>
+<li>设置代理 <code>git config --global http(s).proxy &lt;addr&gt;</code></li>
+<li>取消代理 <code>git config --global --unset http(s).proxy</code></li>
+</ul>
+<h3 id="回滚"><a href="#回滚" class="headerlink" title="回滚"></a>回滚</h3><h4 id="本地回滚"><a href="#本地回滚" class="headerlink" title="本地回滚"></a>本地回滚</h4><ul>
+<li>回退本地代码到某提交版本 `git reset –hard | –soft | –mixed | –keep <commitid><ul>
+<li>hard: 本地的源码和本地未提交的源码都会回退到某个版本</li>
+<li>soft:</li>
+<li>mixed:</li>
+<li>keep:</li>
+</ul>
+</commitid></li>
+<li>修改某次提交,并生成新纪录存储修改 <code>git revert &lt;commitID&gt;</code></li>
+</ul>
+<h4 id="远程回滚"><a href="#远程回滚" class="headerlink" title="远程回滚"></a>远程回滚</h4><ol>
+<li>回滚本地代码</li>
+<li>备份代码</li>
+<li>强推到远程分支 <code>git push -u origin master -f</code></li>
+</ol>
 
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/25/dom操作/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/25/dom操作/" itemprop="url">Dom增删改查隐藏技能</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-25T15:21:12+08:00">
-                2019-02-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="查询元素在视口中得绝对位置"><a href="#查询元素在视口中得绝对位置" class="headerlink" title="查询元素在视口中得绝对位置"></a>查询元素在视口中得绝对位置</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getAbsolutePos</span>(<span class="params">dom</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> curLeft = dom.offsetLeft || <span class="number">0</span></span><br><span class="line">  <span class="keyword">var</span> curTop = dom.offsetTop || <span class="number">0</span></span><br><span class="line">  <span class="keyword">while</span> (dom.offsetParent) &#123;</span><br><span class="line">    dom = dom.offsetParent</span><br><span class="line">    curLeft += dom.offsetLeft</span><br><span class="line">    curTop += dom.offsetTop</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> [curLeft, curTop]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           
         
       
@@ -826,6 +873,125 @@
 </ul>
 <h5 id="触发BFC的方法（与触发hasLayout的部分差别来源于浏览器版本问题）"><a href="#触发BFC的方法（与触发hasLayout的部分差别来源于浏览器版本问题）" class="headerlink" title="触发BFC的方法（与触发hasLayout的部分差别来源于浏览器版本问题）"></a>触发BFC的方法（与触发hasLayout的部分差别来源于浏览器版本问题）</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">position: absolute | fixed</span><br><span class="line"><span class="built_in">float</span>: left|right</span><br><span class="line">display: inline-block | table-cell | table-caption | flex | inline-flex</span><br><span class="line">overflow: hidden|scroll|auto</span><br><span class="line">overflow-x|-y: hidden|scroll|auto</span><br></pre></td></tr></table></figure>
 <font face="微软雅黑" size="2" color="red">注：</font><br><font face="微软雅黑" size="2">通过解读上述规则，可以发现，BFC除了可以解决闭合浮动的问题外，还可以解决以下问题：<br>- 闭合浮动<br>- 同一BFC下，margin重叠问题<br>- 两栏自适应（左定宽，右自适应）</font>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/25/dom操作/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/25/dom操作/" itemprop="url">Dom增删改查隐藏技能</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-25T15:21:12+08:00">
+                2019-02-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="查询元素在视口中得绝对位置"><a href="#查询元素在视口中得绝对位置" class="headerlink" title="查询元素在视口中得绝对位置"></a>查询元素在视口中得绝对位置</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getAbsolutePos</span>(<span class="params">dom</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> curLeft = dom.offsetLeft || <span class="number">0</span></span><br><span class="line">  <span class="keyword">var</span> curTop = dom.offsetTop || <span class="number">0</span></span><br><span class="line">  <span class="keyword">while</span> (dom.offsetParent) &#123;</span><br><span class="line">    dom = dom.offsetParent</span><br><span class="line">    curLeft += dom.offsetLeft</span><br><span class="line">    curTop += dom.offsetTop</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> [curLeft, curTop]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           
         
       
@@ -1034,7 +1200,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
