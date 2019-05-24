@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="eventBus vuex,">
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="eventBus 公共事件总线eventBus的实质就是创建一个vue实例，通过一个空的vue实例作为桥梁实现vue组件间的通信。它是实现非父子组件通信的一种解决方案。https://www.jianshu.com/p/fde85549e3b0https://segmentfault.com/q/1010000007879907  vuexvueRouter基本写法1234new VueRoute">
+<meta name="keywords" content="eventBus vuex">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2019/02/25/hello-world/index.html">
+<meta property="og:title" content="vue--eventBus与vuex">
+<meta property="og:url" content="http://yoursite.com/2019/05/21/vue-eventBus与vuex/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="eventBus 公共事件总线eventBus的实质就是创建一个vue实例，通过一个空的vue实例作为桥梁实现vue组件间的通信。它是实现非父子组件通信的一种解决方案。https://www.jianshu.com/p/fde85549e3b0https://segmentfault.com/q/1010000007879907  vuexvueRouter基本写法1234new VueRoute">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-25T04:45:10.406Z">
+<meta property="og:updated_time" content="2019-05-24T02:23:30.788Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="vue--eventBus与vuex">
+<meta name="twitter:description" content="eventBus 公共事件总线eventBus的实质就是创建一个vue实例，通过一个空的vue实例作为桥梁实现vue组件间的通信。它是实现非父子组件通信的一种解决方案。https://www.jianshu.com/p/fde85549e3b0https://segmentfault.com/q/1010000007879907  vuexvueRouter基本写法1234new VueRoute">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/02/25/hello-world/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/21/vue-eventBus与vuex/">
 
 
 
 
 
-  <title>Hello World | Hexo</title>
+  <title>vue--eventBus与vuex | Hexo</title>
   
 
 
@@ -232,7 +233,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/25/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/21/vue-eventBus与vuex/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -249,7 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">vue--eventBus与vuex</h1>
         
 
         <div class="post-meta">
@@ -261,8 +262,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-25T12:45:10+08:00">
-                2019-02-25
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-21T19:02:44+08:00">
+                2019-05-21
               </time>
             
 
@@ -299,15 +300,12 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h3 id="eventBus"><a href="#eventBus" class="headerlink" title="eventBus"></a>eventBus</h3><blockquote>
+<p>公共事件总线eventBus的实质就是创建一个vue实例，通过一个空的vue实例作为桥梁实现vue组件间的通信。它是实现非父子组件通信的一种解决方案。<br><a href="https://www.jianshu.com/p/fde85549e3b0" target="_blank" rel="noopener">https://www.jianshu.com/p/fde85549e3b0</a><br><a href="https://segmentfault.com/q/1010000007879907" target="_blank" rel="noopener">https://segmentfault.com/q/1010000007879907</a></p>
+</blockquote>
+<h3 id="vuex"><a href="#vuex" class="headerlink" title="vuex"></a>vuex</h3><h3 id="vueRouter"><a href="#vueRouter" class="headerlink" title="vueRouter"></a>vueRouter</h3><h4 id="基本写法"><a href="#基本写法" class="headerlink" title="基本写法"></a>基本写法</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">  linkActiveClass: <span class="string">'open active'</span>,</span><br><span class="line">  routes: [...]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="routes"><a href="#routes" class="headerlink" title="routes"></a>routes</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  name: xx,</span><br><span class="line">  path: xx,</span><br><span class="line">  meta: xx, <span class="comment">// 有利于处理seo</span></span><br><span class="line">  redirect: xx,</span><br><span class="line">  component: xx,</span><br><span class="line">  children: []</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="面包屑"><a href="#面包屑" class="headerlink" title="面包屑"></a>面包屑</h4><p><a href="https://segmentfault.com/a/1190000010574901" target="_blank" rel="noopener">https://segmentfault.com/a/1190000010574901</a></p>
 
       
     </div>
@@ -323,6 +321,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/eventBus-vuex/" rel="tag"># eventBus vuex</a>
+          
+        </div>
+      
 
       
       
@@ -332,15 +336,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/05/21/webpack纪要/" rel="next" title="webpack纪要">
+                <i class="fa fa-chevron-left"></i> webpack纪要
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/25/dom操作/" rel="prev" title="Dom增删改查隐藏技能">
-                Dom增删改查隐藏技能 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -463,7 +467,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#eventBus"><span class="nav-number">1.</span> <span class="nav-text">eventBus</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vuex"><span class="nav-number">2.</span> <span class="nav-text">vuex</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vueRouter"><span class="nav-number">3.</span> <span class="nav-text">vueRouter</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本写法"><span class="nav-number">3.1.</span> <span class="nav-text">基本写法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#routes"><span class="nav-number">3.2.</span> <span class="nav-text">routes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#面包屑"><span class="nav-number">3.3.</span> <span class="nav-text">面包屑</span></a></li></ol></li></ol></div>
             
 
           </div>
