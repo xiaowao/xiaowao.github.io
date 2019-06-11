@@ -421,8 +421,14 @@
         
           
             <h3 id="eventBus"><a href="#eventBus" class="headerlink" title="eventBus"></a>eventBus</h3><blockquote>
-<p>公共事件总线eventBus的实质就是创建一个vue实例，通过一个空的vue实例作为桥梁实现vue组件间的通信。它是实现非父子组件通信的一种解决方案。<br><a href="https://www.jianshu.com/p/fde85549e3b0" target="_blank" rel="noopener">https://www.jianshu.com/p/fde85549e3b0</a><br><a href="https://segmentfault.com/q/1010000007879907" target="_blank" rel="noopener">https://segmentfault.com/q/1010000007879907</a></p>
+<p>公共事件总线eventBus的实质就是创建一个vue实例，通过一个空的vue实例作为桥梁实现vue组件间的通信。它是实现非父子组件通信的一种解决方案。</p>
 </blockquote>
+<h4 id="案例1"><a href="#案例1" class="headerlink" title="案例1"></a>案例1</h4><p>案例描述</p>
+<p><img src="/2019/05/21/vue-eventBus与vuex/eventBus_1.png" alt="image"><br>查询组件请求数据时，派发事件A，告知各图表数据更新开始<br>图表接收到事件A，展示loading态<br>图表接收到数据，执行图表渲染<br>图表渲染完成，结束loading态</p>
+<p>实施方案</p>
+<p>查询组件派发事件A： eventBus.$emit(A)<br>图表组件建立事件捕捉: eventBus.$on(A, () =&gt; {</p>
+<p>  // 展示图表loading<br>  mychart.showLoading()<br>})<br>图标组件销毁前：eventBus.$off()</p>
+<p><a href="https://www.jianshu.com/p/fde85549e3b0" target="_blank" rel="noopener">https://www.jianshu.com/p/fde85549e3b0</a><br><a href="https://segmentfault.com/q/1010000007879907" target="_blank" rel="noopener">https://segmentfault.com/q/1010000007879907</a></p>
 <h3 id="vuex"><a href="#vuex" class="headerlink" title="vuex"></a>vuex</h3><h3 id="vueRouter"><a href="#vueRouter" class="headerlink" title="vueRouter"></a>vueRouter</h3><h4 id="基本写法"><a href="#基本写法" class="headerlink" title="基本写法"></a>基本写法</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">  linkActiveClass: <span class="string">'open active'</span>,</span><br><span class="line">  routes: [...]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <h4 id="routes"><a href="#routes" class="headerlink" title="routes"></a>routes</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  name: xx,</span><br><span class="line">  path: xx,</span><br><span class="line">  meta: xx, <span class="comment">// 有利于处理seo</span></span><br><span class="line">  redirect: xx,</span><br><span class="line">  component: xx,</span><br><span class="line">  children: []</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="面包屑"><a href="#面包屑" class="headerlink" title="面包屑"></a>面包屑</h4><p><a href="https://segmentfault.com/a/1190000010574901" target="_blank" rel="noopener">https://segmentfault.com/a/1190000010574901</a></p>
@@ -1134,6 +1140,16 @@
 <li>备份代码</li>
 <li>强推到远程分支 <code>git push -u origin master -f</code></li>
 </ol>
+<h4 id="修改commit注释"><a href="#修改commit注释" class="headerlink" title="修改commit注释"></a>修改commit注释</h4><ul>
+<li>最近一次提交的修改 <code>git commit --amend</code></li>
+<li>历史提交的修改<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">First step: git rebase -i &lt;HEAD~POS&gt;|&lt;commitID&gt;</span><br><span class="line">Second step: git commit --amend</span><br><span class="line">Third step: git rebase --<span class="built_in">continue</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h3><ul>
+<li>i: 编辑</li>
+<li>q: 退出</li>
+<li>wq: 保存退出</li>
+</ul>
 
           
         
