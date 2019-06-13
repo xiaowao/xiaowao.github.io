@@ -88,7 +88,7 @@
 <meta property="og:description" content="eventBus 公共事件总线eventBus的实质就是创建一个vue实例，通过一个空的vue实例作为桥梁实现vue组件间的通信。它是实现非父子组件通信的一种解决方案。  案例1案例描述 查询组件请求数据时，派发事件A，告知各图表数据更新开始图表接收到事件A，展示loading态图表接收到数据，执行图表渲染图表渲染完成，结束loading态 实施方案 查询组件派发事件A： eventBus.$em">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/05/21/vue-eventBus与vuex/eventBus_1.png">
-<meta property="og:updated_time" content="2019-05-28T03:57:13.812Z">
+<meta property="og:updated_time" content="2019-06-12T10:31:01.849Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue--eventBus与vuex">
 <meta name="twitter:description" content="eventBus 公共事件总线eventBus的实质就是创建一个vue实例，通过一个空的vue实例作为桥梁实现vue组件间的通信。它是实现非父子组件通信的一种解决方案。  案例1案例描述 查询组件请求数据时，派发事件A，告知各图表数据更新开始图表接收到事件A，展示loading态图表接收到数据，执行图表渲染图表渲染完成，结束loading态 实施方案 查询组件派发事件A： eventBus.$em">
@@ -314,6 +314,9 @@
 <h3 id="vuex"><a href="#vuex" class="headerlink" title="vuex"></a>vuex</h3><h3 id="vueRouter"><a href="#vueRouter" class="headerlink" title="vueRouter"></a>vueRouter</h3><h4 id="基本写法"><a href="#基本写法" class="headerlink" title="基本写法"></a>基本写法</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">  linkActiveClass: <span class="string">'open active'</span>,</span><br><span class="line">  routes: [...]</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <h4 id="routes"><a href="#routes" class="headerlink" title="routes"></a>routes</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  name: xx,</span><br><span class="line">  path: xx,</span><br><span class="line">  meta: xx, <span class="comment">// 有利于处理seo</span></span><br><span class="line">  redirect: xx,</span><br><span class="line">  component: xx,</span><br><span class="line">  children: []</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="面包屑"><a href="#面包屑" class="headerlink" title="面包屑"></a>面包屑</h4><p><a href="https://segmentfault.com/a/1190000010574901" target="_blank" rel="noopener">https://segmentfault.com/a/1190000010574901</a></p>
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><ul>
+<li>绑定文本<p v-bind="message"></p></li>
+</ul>
 
       
     </div>
@@ -433,7 +436,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -479,7 +482,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#eventBus"><span class="nav-number">1.</span> <span class="nav-text">eventBus</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#案例1"><span class="nav-number">1.1.</span> <span class="nav-text">案例1</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vuex"><span class="nav-number">2.</span> <span class="nav-text">vuex</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vueRouter"><span class="nav-number">3.</span> <span class="nav-text">vueRouter</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本写法"><span class="nav-number">3.1.</span> <span class="nav-text">基本写法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#routes"><span class="nav-number">3.2.</span> <span class="nav-text">routes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#面包屑"><span class="nav-number">3.3.</span> <span class="nav-text">面包屑</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#eventBus"><span class="nav-number">1.</span> <span class="nav-text">eventBus</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#案例1"><span class="nav-number">1.1.</span> <span class="nav-text">案例1</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vuex"><span class="nav-number">2.</span> <span class="nav-text">vuex</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vueRouter"><span class="nav-number">3.</span> <span class="nav-text">vueRouter</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本写法"><span class="nav-number">3.1.</span> <span class="nav-text">基本写法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#routes"><span class="nav-number">3.2.</span> <span class="nav-text">routes</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#面包屑"><span class="nav-number">3.3.</span> <span class="nav-text">面包屑</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他"><span class="nav-number">3.4.</span> <span class="nav-text">其他</span></a></li></ol></li></ol></div>
             
 
           </div>
