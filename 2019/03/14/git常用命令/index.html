@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="branch 查看本地分支 git branch -a 查看远程库与本地分支 git remote show origin 新建分支 git branch &amp;lt;branchName&amp;gt; 根据tag新建分支 git branch &amp;lt;branchName&amp;gt; &amp;lt;tagName&amp;gt; 推送本地分支到线上 git push origin &amp;lt;branchName&amp;gt; 切换">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-11T03:34:35.694Z">
+<meta property="og:updated_time" content="2019-06-17T06:30:01.525Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git常用命令">
 <meta name="twitter:description" content="branch 查看本地分支 git branch -a 查看远程库与本地分支 git remote show origin 新建分支 git branch &amp;lt;branchName&amp;gt; 根据tag新建分支 git branch &amp;lt;branchName&amp;gt; &amp;lt;tagName&amp;gt; 推送本地分支到线上 git push origin &amp;lt;branchName&amp;gt; 切换">
@@ -353,11 +353,12 @@
 <li>备份代码</li>
 <li>强推到远程分支 <code>git push -u origin master -f</code></li>
 </ol>
-<h4 id="修改commit注释"><a href="#修改commit注释" class="headerlink" title="修改commit注释"></a>修改commit注释</h4><ul>
+<h4 id="commit"><a href="#commit" class="headerlink" title="commit"></a>commit</h4><h5 id="修改commit注释"><a href="#修改commit注释" class="headerlink" title="修改commit注释"></a>修改commit注释</h5><ul>
 <li>最近一次提交的修改 <code>git commit --amend</code></li>
 <li>历史提交的修改<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">First step: git rebase -i &lt;HEAD~POS&gt;|&lt;commitID&gt;</span><br><span class="line">Second step: git commit --amend</span><br><span class="line">Third step: git rebase --<span class="built_in">continue</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<h5 id="合并最近一次commit到当前commit"><a href="#合并最近一次commit到当前commit" class="headerlink" title="合并最近一次commit到当前commit"></a>合并最近一次commit到当前commit</h5><p><code>git commit -a --amend -m &#39;&lt;commitText&gt;&#39;</code></p>
 <h3 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h3><ul>
 <li>i: 编辑</li>
 <li>q: 退出</li>
@@ -482,7 +483,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -528,7 +529,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#branch"><span class="nav-number">1.</span> <span class="nav-text">branch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tag"><span class="nav-number">2.</span> <span class="nav-text">tag</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#换行符"><span class="nav-number">3.</span> <span class="nav-text">换行符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代理"><span class="nav-number">4.</span> <span class="nav-text">代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回滚"><span class="nav-number">5.</span> <span class="nav-text">回滚</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本地回滚"><span class="nav-number">5.1.</span> <span class="nav-text">本地回滚</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#远程回滚"><span class="nav-number">5.2.</span> <span class="nav-text">远程回滚</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#修改commit注释"><span class="nav-number">5.3.</span> <span class="nav-text">修改commit注释</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vim"><span class="nav-number">6.</span> <span class="nav-text">vim</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#branch"><span class="nav-number">1.</span> <span class="nav-text">branch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tag"><span class="nav-number">2.</span> <span class="nav-text">tag</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#换行符"><span class="nav-number">3.</span> <span class="nav-text">换行符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代理"><span class="nav-number">4.</span> <span class="nav-text">代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回滚"><span class="nav-number">5.</span> <span class="nav-text">回滚</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#本地回滚"><span class="nav-number">5.1.</span> <span class="nav-text">本地回滚</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#远程回滚"><span class="nav-number">5.2.</span> <span class="nav-text">远程回滚</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#commit"><span class="nav-number">5.3.</span> <span class="nav-text">commit</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#修改commit注释"><span class="nav-number">5.3.1.</span> <span class="nav-text">修改commit注释</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#合并最近一次commit到当前commit"><span class="nav-number">5.3.2.</span> <span class="nav-text">合并最近一次commit到当前commit</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vim"><span class="nav-number">6.</span> <span class="nav-text">vim</span></a></li></ol></div>
             
 
           </div>

@@ -229,131 +229,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/13/demo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/06/13/demo/" itemprop="url">demo</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-06-13T21:13:23+08:00">
-                2019-06-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="周期-精细化"><a href="#周期-精细化" class="headerlink" title="周期/精细化"></a>周期/精细化</h4><h4 id="step1-获取数据"><a href="#step1-获取数据" class="headerlink" title="step1 获取数据:"></a>step1 获取数据:</h4><p>path: modules/statData/cycle/refinementCycle<br>  <img src="/2019/06/13/demo/stp1.png" alt="image"></p>
-<p>path: vuex/refinementCycle/index<br>  <img src="/2019/06/13/demo/stp2.png" alt="image"></p>
-<h4 id="step2-数据规格化处理"><a href="#step2-数据规格化处理" class="headerlink" title="step2 数据规格化处理:"></a>step2 数据规格化处理:</h4><p>path: vuex/refinementCycle/index<br>  <img src="/2019/06/13/demo/stp3.png" alt="image"><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getChartData</span>(<span class="params">data, tmpData, unit, series</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> data.reduce(<span class="function">(<span class="params">cur, item, index</span>) =&gt;</span> &#123;</span><br><span class="line">        cur.xAxisData.push(item.ny_zjwc_time.toString().substring(<span class="number">5</span>));</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> each <span class="keyword">of</span> tmpData) &#123;</span><br><span class="line">            each.seriesData.push(item[each.key]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (index === data.length - <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">let</span> each <span class="keyword">of</span> tmpData) &#123;</span><br><span class="line">                <span class="keyword">let</span> name = unit ? <span class="string">`<span class="subst">$&#123;each.seriesName&#125;</span>(<span class="subst">$&#123;unit&#125;</span>)`</span> : <span class="string">`<span class="subst">$&#123;each.seriesName&#125;</span>`</span>;</span><br><span class="line">                <span class="keyword">if</span> (series === <span class="string">'line'</span>) &#123;</span><br><span class="line">                    <span class="keyword">let</span> line = &#123;</span><br><span class="line">                        type: <span class="string">'line'</span>,</span><br><span class="line">                        smooth: <span class="literal">true</span>,</span><br><span class="line">                        data: each.seriesData,</span><br><span class="line">                        name: name,</span><br><span class="line">                        itemStyle: &#123;</span><br><span class="line">                            normal: &#123;</span><br><span class="line">                                label: &#123;</span><br><span class="line">                                    show: <span class="literal">false</span>,</span><br><span class="line">                                    position: <span class="string">'top'</span>,</span><br><span class="line">                                    formatter: <span class="string">'&#123;c&#125;'</span></span><br><span class="line">                                &#125;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;;</span><br><span class="line">                    cur.legendData.push(name);</span><br><span class="line">                    cur.seriesData.push(line);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">let</span> bar = &#123;</span><br><span class="line">                        name: name,</span><br><span class="line">                        type: <span class="string">'bar'</span>,</span><br><span class="line">                        stack: <span class="string">'天'</span>,</span><br><span class="line">                        barMaxWidth: <span class="number">55</span>,</span><br><span class="line">                        label: &#123;</span><br><span class="line">                            normal: &#123;</span><br><span class="line">                                show: <span class="literal">true</span>,</span><br><span class="line">                                position: <span class="string">'inside'</span>,</span><br><span class="line">                                textStyle: &#123;</span><br><span class="line">                                    fontSize: <span class="number">10</span></span><br><span class="line">                                &#125;</span><br><span class="line">                            &#125;</span><br><span class="line">                        &#125;,</span><br><span class="line">                        data: each.seriesData</span><br><span class="line">                    &#125;;</span><br><span class="line">                    cur.legendData.push(name);</span><br><span class="line">                    cur.seriesData.push(bar);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (series === <span class="string">'bar'</span>) &#123;</span><br><span class="line">                <span class="keyword">let</span> cData = [];</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">let</span> each <span class="keyword">of</span> tmpData) &#123;</span><br><span class="line">                    cData.push(each.seriesData);</span><br><span class="line">                &#125;</span><br><span class="line">                cur.maxValue = maxArrayValue(cData);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cur;</span><br><span class="line">    &#125;, &#123;</span><br><span class="line">        legendData: [],</span><br><span class="line">        seriesData: [],</span><br><span class="line">        xAxisData: [],</span><br><span class="line">        maxValue: []</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="step3-图表选项实例化"><a href="#step3-图表选项实例化" class="headerlink" title="step3 图表选项实例化:"></a>step3 图表选项实例化:</h4><p>path: modules/statData/cycle/refinementCycle<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">initChart() &#123;</span><br><span class="line">                warningMsg(</span><br><span class="line">                    <span class="keyword">this</span>,</span><br><span class="line">                    <span class="keyword">this</span>.getRefinementCycleDataStatus.status,</span><br><span class="line">                    <span class="keyword">this</span>.getRefinementCycleDataStatus.msg</span><br><span class="line">                );</span><br><span class="line">                <span class="keyword">return</span> &#123;</span><br><span class="line">                    chart: [</span><br><span class="line">                        &#123;</span><br><span class="line">                            title: <span class="string">'精细化周期'</span>,</span><br><span class="line">                            chart: barChartOption,</span><br><span class="line">                            data: &#123;</span><br><span class="line">                                legend: <span class="keyword">this</span>.getRefinementCycleBasicData.legendData,</span><br><span class="line">                                xAxis: <span class="keyword">this</span>.getRefinementCycleBasicData.xAxisData,</span><br><span class="line">                                series: <span class="keyword">this</span>.getRefinementCycleBasicData.seriesData</span><br><span class="line">                            &#125;,</span><br><span class="line">                            tooltipFormat: &#123;<span class="attr">decimal</span>: <span class="string">''</span>, <span class="attr">unit</span>: <span class="string">''</span>&#125;,</span><br><span class="line">                            yAxisFormatUnit: <span class="string">''</span></span><br><span class="line">                        &#125;</span><br><span class="line">                    ]</span><br><span class="line">                &#125;;</span><br><span class="line">            &#125;,</span><br></pre></td></tr></table></figure></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.chart = <span class="keyword">this</span>.type.chart.reduce(<span class="function">(<span class="params">cur, item</span>) =&gt;</span> &#123;</span><br><span class="line">                            <span class="keyword">let</span> opt = extend(&#123;&#125;, item.chart, <span class="literal">true</span>);</span><br><span class="line">                            opt.legend.data = item.data.legend;</span><br><span class="line">                            <span class="keyword">if</span> (item.data.xAxis !== <span class="literal">undefined</span> &amp;&amp; item.data.xAxis !== <span class="string">''</span>) &#123;</span><br><span class="line">                                opt.xAxis.data = item.data.xAxis;</span><br><span class="line">                            &#125;</span><br><span class="line">                            <span class="keyword">if</span> (item.data.yAxis !== <span class="literal">undefined</span> &amp;&amp; item.data.yAxis !== <span class="string">''</span>) &#123;</span><br><span class="line">                                opt.yAxis.data = item.data.yAxis;</span><br><span class="line">                            &#125;</span><br><span class="line">                            opt.series = item.data.series;</span><br><span class="line">                            <span class="keyword">if</span> (item.yAxisFormatUnit !== <span class="string">''</span>) &#123;</span><br><span class="line">                                opt.yAxis.axisLabel.formatter = <span class="string">`&#123;value&#125;<span class="subst">$&#123;item.yAxisFormatUnit&#125;</span>`</span>;</span><br><span class="line">                            &#125;</span><br><span class="line">                            <span class="keyword">if</span> (item.yAxisMax !== <span class="string">''</span>) &#123;</span><br><span class="line">                                opt.yAxis.max = item.yAxisMax;</span><br><span class="line">                            &#125;</span><br><span class="line">                            <span class="keyword">if</span> (item.yAxisMin !== <span class="string">''</span>) &#123;</span><br><span class="line">                                opt.yAxis.min = item.yAxisMin;</span><br><span class="line">                            &#125;</span><br><span class="line">                            <span class="keyword">if</span> (item.tooltipFormat.decimal !== <span class="string">''</span> || item.tooltipFormat.unit !== <span class="string">''</span>) &#123;</span><br><span class="line">                                opt.tooltip.formatter = <span class="function">(<span class="params">params</span>) =&gt;</span> &#123;</span><br><span class="line">                                    <span class="keyword">let</span> relVal = <span class="string">`<span class="subst">$&#123;params[<span class="number">0</span>].name&#125;</span>&lt;br&gt;`</span>;</span><br><span class="line">                                    <span class="keyword">return</span> params.reduce(<span class="function">(<span class="params">cur, val</span>) =&gt;</span> &#123;</span><br><span class="line">                                        cur += <span class="string">`<span class="subst">$&#123;val.marker&#125;</span> <span class="subst">$&#123;val.seriesName&#125;</span>:`</span>;</span><br><span class="line">                                        <span class="keyword">let</span> values = val.value;</span><br><span class="line">                                        <span class="keyword">if</span> (item.tooltipFormat.decimal !== <span class="string">''</span>) &#123;</span><br><span class="line">                                            <span class="keyword">if</span> (<span class="keyword">typeof</span> values === <span class="string">'string'</span>) &#123;</span><br><span class="line">                                                values = <span class="built_in">parseFloat</span>(values);</span><br><span class="line">                                            &#125;</span><br><span class="line">                                            values = toThousands(values.toFixed(<span class="built_in">parseInt</span>(item.tooltipFormat.decimal, <span class="number">10</span>)));</span><br><span class="line">                                        &#125;</span><br><span class="line">                                        cur += <span class="string">`<span class="subst">$&#123;values&#125;</span>`</span>;</span><br><span class="line">                                        <span class="keyword">if</span> (item.tooltipFormat.unit !== <span class="string">''</span>) &#123;</span><br><span class="line">                                            cur += <span class="string">`<span class="subst">$&#123;item.tooltipFormat.unit&#125;</span>&lt;br&gt;`</span>;</span><br><span class="line">                                        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                                            cur += <span class="string">'&lt;br&gt;'</span>;</span><br><span class="line">                                        &#125;</span><br><span class="line">                                        <span class="keyword">return</span> cur;</span><br><span class="line">                                    &#125;, relVal);</span><br><span class="line">                                &#125;;</span><br><span class="line">                            &#125;</span><br><span class="line">                            <span class="keyword">if</span> (item.barHideFormat !== <span class="literal">undefined</span> &amp;&amp;</span><br><span class="line">                                item.barHideFormat.maxValue !== <span class="string">''</span> &amp;&amp;</span><br><span class="line">                                item.barHideFormat.decimal !== <span class="string">''</span> &amp;&amp;</span><br><span class="line">                                item.barHideFormat.threshold !== <span class="string">''</span>) &#123;</span><br><span class="line">                                <span class="comment">// 关键不然报无限循环错误</span></span><br><span class="line">                                <span class="keyword">this</span>.series = opt.series;</span><br><span class="line">                                <span class="keyword">this</span>.series.reduce(<span class="function">(<span class="params">cur, each, index</span>) =&gt;</span> &#123;</span><br><span class="line">                                    <span class="keyword">if</span> (each.type === <span class="string">'bar'</span>) &#123;</span><br><span class="line">                                        each.label.normal.formatter = <span class="function">(<span class="params">params</span>) =&gt;</span> &#123;</span><br><span class="line">                                            <span class="keyword">let</span> label = <span class="string">''</span>;</span><br><span class="line">                                            <span class="keyword">if</span> (params.value !== <span class="literal">null</span> &amp;&amp; <span class="built_in">parseFloat</span>(params.value) &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                                                <span class="keyword">if</span> (item.barHideFormat.decimal) &#123;</span><br><span class="line">                                                    params.value = params.value.toFixed(item.barHideFormat.decimal);</span><br><span class="line">                                                &#125;</span><br><span class="line">                                                <span class="keyword">if</span> (<span class="built_in">parseFloat</span>(params.value</span><br><span class="line">                                                ) / item.barHideFormat.maxValue &gt; item.barHideFormat.threshold) &#123;</span><br><span class="line">                                                    <span class="keyword">if</span> (item.barHideFormat.unit !== <span class="literal">undefined</span></span><br><span class="line">                                                        &amp;&amp; item.barHideFormat.unit !== <span class="string">''</span>) &#123;</span><br><span class="line">                                                        label = <span class="string">`<span class="subst">$&#123;params.value.toString()&#125;</span><span class="subst">$&#123;item.barHideFormat.unit&#125;</span>`</span>;</span><br><span class="line">                                                    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (item.barHideFormat.label !== <span class="literal">undefined</span> &amp;&amp;</span><br><span class="line">                                                        item.barHideFormat.label !== <span class="string">''</span>) &#123;</span><br><span class="line">                                                        label = params.value.toString() + <span class="string">'\n'</span> +</span><br><span class="line">                                                            item.barHideFormat.label[</span><br><span class="line">                                                                item.barHideFormat.label.length - <span class="number">1</span> - index</span><br><span class="line">                                                            ][params.dataIndex];</span><br><span class="line">                                                    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                                                        label = params.value;</span><br><span class="line">                                                    &#125;</span><br><span class="line">                                                &#125;</span><br><span class="line">                                            &#125;</span><br><span class="line">                                            <span class="keyword">return</span> label;</span><br><span class="line">                                        &#125;;</span><br><span class="line">                                    &#125;</span><br><span class="line">                                &#125;, []);</span><br><span class="line">                            &#125;</span><br><span class="line">                            <span class="keyword">let</span> exportStr = <span class="string">''</span>;</span><br><span class="line">                            <span class="keyword">if</span> (item.showExportExcelDataStr !== <span class="literal">undefined</span>) &#123;</span><br><span class="line">                                exportStr = item.showExportExcelDataStr;</span><br><span class="line">                            &#125;</span><br><span class="line">                            cur.push(</span><br><span class="line">                                &#123;</span><br><span class="line">                                    title: item.title,</span><br><span class="line">                                    showExportExcelDataStr: exportStr,</span><br><span class="line">                                    data: opt,</span><br><span class="line">                                    isMinimize: <span class="literal">false</span></span><br><span class="line">                                &#125;</span><br><span class="line">                            );</span><br><span class="line">                            <span class="keyword">return</span> cur;</span><br><span class="line">                        &#125;, []);</span><br></pre></td></tr></table></figure>
-<h4 id="step4-图表渲染："><a href="#step4-图表渲染：" class="headerlink" title="step4 图表渲染："></a>step4 图表渲染：</h4><p>path: components/chart:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echart.registerTheme(<span class="string">'exshowTheme'</span>, exshowTheme);</span><br><span class="line"><span class="keyword">this</span>.$chart = echart.init(<span class="keyword">this</span>.$el, <span class="string">'exshowTheme'</span>);</span><br><span class="line"><span class="keyword">this</span>.$chart.setOption(<span class="keyword">this</span>.option, <span class="literal">true</span>);</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/24/数据格式转换/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1268,11 +1143,12 @@
 <li>备份代码</li>
 <li>强推到远程分支 <code>git push -u origin master -f</code></li>
 </ol>
-<h4 id="修改commit注释"><a href="#修改commit注释" class="headerlink" title="修改commit注释"></a>修改commit注释</h4><ul>
+<h4 id="commit"><a href="#commit" class="headerlink" title="commit"></a>commit</h4><h5 id="修改commit注释"><a href="#修改commit注释" class="headerlink" title="修改commit注释"></a>修改commit注释</h5><ul>
 <li>最近一次提交的修改 <code>git commit --amend</code></li>
 <li>历史提交的修改<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">First step: git rebase -i &lt;HEAD~POS&gt;|&lt;commitID&gt;</span><br><span class="line">Second step: git commit --amend</span><br><span class="line">Third step: git rebase --<span class="built_in">continue</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<h5 id="合并最近一次commit到当前commit"><a href="#合并最近一次commit到当前commit" class="headerlink" title="合并最近一次commit到当前commit"></a>合并最近一次commit到当前commit</h5><p><code>git commit -a --amend -m &#39;&lt;commitText&gt;&#39;</code></p>
 <h3 id="vim"><a href="#vim" class="headerlink" title="vim"></a>vim</h3><ul>
 <li>i: 编辑</li>
 <li>q: 退出</li>
@@ -1623,7 +1499,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
