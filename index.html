@@ -229,7 +229,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/24/数据格式转换/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/24/基础函数库/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -248,7 +248,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/24/数据格式转换/" itemprop="url">数据格式转换</a></h1>
+                <a class="post-title-link" href="/2019/05/24/基础函数库/" itemprop="url">基础函数库</a></h1>
         
 
         <div class="post-meta">
@@ -302,6 +302,9 @@
           
             <h3 id="日期"><a href="#日期" class="headerlink" title="日期"></a>日期</h3><h4 id="时间戳转-lt-xx年-gt-xx月xx日-今天-时-分"><a href="#时间戳转-lt-xx年-gt-xx月xx日-今天-时-分" class="headerlink" title="时间戳转(&lt;xx年&gt; xx月xx日)|(今天) 时:分"></a>时间戳转(&lt;xx年&gt; xx月xx日)|(今天) 时:分</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">formatTimeStampTillMinute</span>(<span class="params">timeStamp</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> res = <span class="literal">null</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 转毫秒</span></span><br><span class="line">  <span class="keyword">var</span> ts = <span class="built_in">parseInt</span>(timeStamp, <span class="number">10</span>)</span><br><span class="line">  <span class="keyword">var</span> cs = <span class="built_in">Date</span>.now()</span><br><span class="line">  <span class="keyword">var</span> interval = cs - ts</span><br><span class="line">  <span class="keyword">if</span> (interval &lt; <span class="number">0</span>) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="string">'时间参数异常，大于最新时间'</span></span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> formatTime = <span class="keyword">new</span> <span class="built_in">Date</span>(ts)</span><br><span class="line">  <span class="keyword">let</span> fYear = formatTime.getFullYear()</span><br><span class="line">  <span class="keyword">let</span> fMonth = formatTime.getMonth() + <span class="number">1</span></span><br><span class="line">  <span class="keyword">let</span> fDay = formatTime.getDate()</span><br><span class="line">  <span class="keyword">let</span> fHour = formatTime.getHours()</span><br><span class="line">  <span class="keyword">let</span> fMinute = formatTime.getMinutes()</span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> currentTime = <span class="keyword">new</span> <span class="built_in">Date</span>(cs)</span><br><span class="line">  <span class="keyword">let</span> cYear = currentTime.getFullYear()</span><br><span class="line">  <span class="keyword">let</span> cMonth = currentTime.getMonth() + <span class="number">1</span></span><br><span class="line">  <span class="keyword">let</span> cDay = currentTime.getDate()</span><br><span class="line">  <span class="keyword">let</span> cHour = currentTime.getHours()</span><br><span class="line">  <span class="keyword">let</span> cMinute = currentTime.getMinutes()</span><br><span class="line">  <span class="keyword">let</span> cSecond = currentTime.getSeconds()</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">let</span> phaseTimeStr = <span class="string">`<span class="subst">$&#123;fHour&#125;</span>:<span class="subst">$&#123;fMinute&#125;</span>`</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 与当前时间相差小于1分钟</span></span><br><span class="line">  <span class="keyword">if</span> (interval &lt; <span class="number">60</span> * <span class="number">1000</span>) &#123;</span><br><span class="line">    res = <span class="string">'刚刚'</span></span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 与当前时间在同一天</span></span><br><span class="line">  <span class="keyword">if</span> (interval &lt; (cHour * <span class="number">3600</span> + cMinute * <span class="number">60</span> + cSecond) * <span class="number">1000</span> ) &#123;</span><br><span class="line">    res = <span class="string">`今天<span class="subst">$&#123;phaseTimeStr&#125;</span>`</span></span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 与当前时间在同一年</span></span><br><span class="line">  <span class="keyword">if</span> (fYear === cYear) &#123;</span><br><span class="line">    res = <span class="string">`<span class="subst">$&#123;fMounth&#125;</span>月<span class="subst">$&#123;fDay&#125;</span> <span class="subst">$&#123;pahseTimeStr&#125;</span>`</span></span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  res = <span class="string">`<span class="subst">$&#123;fYear&#125;</span>年 <span class="subst">$&#123;fMounth&#125;</span>月<span class="subst">$&#123;fDay&#125;</span> <span class="subst">$&#123;pahseTimeStr&#125;</span>`</span></span><br><span class="line">  <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">formatSize</span>(<span class="params">size, base = <span class="number">1024</span></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> baseK = base</span><br><span class="line">  <span class="keyword">var</span> baseM = <span class="built_in">Math</span>.pow(base, <span class="number">2</span>)</span><br><span class="line">  <span class="keyword">var</span> baseG = <span class="built_in">Math</span>.pow(base, <span class="number">3</span>)</span><br><span class="line">  <span class="keyword">var</span> sizeInt = size</span><br><span class="line">  <span class="keyword">var</span> res = <span class="string">'未知大小'</span></span><br><span class="line">  <span class="keyword">if</span> (sizeInt &lt; baseK) &#123;</span><br><span class="line">    res = sizeInt.toFixed(<span class="number">2</span>) + <span class="string">'B'</span></span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (sizeInt &lt; baseM) &#123;</span><br><span class="line">    res = (sizeInt / baseK).toFixed(<span class="number">2</span>) + <span class="string">'KB'</span></span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (sizeInt &lt; baseG) &#123;</span><br><span class="line">    res = (sizeInt / baseM).toFixed(<span class="number">2</span>) + <span class="string">'MB'</span></span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line">  &#125;</span><br><span class="line">  res = (sizeInt / baseG).toFixed(<span class="number">2</span>) + <span class="string">'GB'</span></span><br><span class="line">  <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="对象扩展"><a href="#对象扩展" class="headerlink" title="对象扩展"></a>对象扩展</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 对象扩展</span></span><br><span class="line"><span class="comment"> * @param target 目标对象 可以为空或是数组</span></span><br><span class="line"><span class="comment"> * @param origin 源对象</span></span><br><span class="line"><span class="comment"> * @oaran deep Boolean 是否深度扩展</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">extend</span>(<span class="params">target, origin, deep = true</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (target === <span class="literal">null</span> || <span class="keyword">typeof</span> target !== <span class="string">'object'</span>) &#123;</span><br><span class="line">        target = origin.constructor === <span class="built_in">Array</span> ? [] : &#123;&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> k <span class="keyword">in</span> origin) &#123;</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">typeof</span> origin[k] === <span class="string">'undefined'</span> || !origin.hasOwnProperty(k)) &#123;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (origin[k] !== <span class="literal">null</span> &amp;&amp; <span class="keyword">typeof</span> origin[k] === <span class="string">'object'</span> &amp;&amp; deep) &#123;</span><br><span class="line">            target[k] = extend(target[k], origin[k], deep);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            target[k] = origin[k];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> target;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">clone</span>(<span class="params">obj</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> extend(<span class="literal">null</span>, obj, <span class="literal">true</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h3><h4 id="URL参数获取"><a href="#URL参数获取" class="headerlink" title="URL参数获取"></a>URL参数获取</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getQueryString</span>(<span class="params">name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> loc = <span class="built_in">window</span>.location.search.substr(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'(^|&amp;)'</span> + name + <span class="string">'=([^&amp;]*)(&amp;|$)'</span>);</span><br><span class="line">    <span class="keyword">var</span> r = loc.match(reg);</span><br><span class="line">    <span class="keyword">var</span> result = <span class="string">''</span>;</span><br><span class="line">    <span class="keyword">if</span> (r !== <span class="literal">null</span>) &#123;</span><br><span class="line">        result = <span class="built_in">decodeURI</span>(r[<span class="number">2</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           
         
       
@@ -1202,6 +1205,125 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/25/dom操作/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/25/dom操作/" itemprop="url">Dom增删改查隐藏技能</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-25T15:21:12+08:00">
+                2019-02-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="查询元素在视口中得绝对位置"><a href="#查询元素在视口中得绝对位置" class="headerlink" title="查询元素在视口中得绝对位置"></a>查询元素在视口中得绝对位置</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getAbsolutePos</span>(<span class="params">dom</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> curLeft = dom.offsetLeft || <span class="number">0</span></span><br><span class="line">  <span class="keyword">var</span> curTop = dom.offsetTop || <span class="number">0</span></span><br><span class="line">  <span class="keyword">while</span> (dom.offsetParent) &#123;</span><br><span class="line">    dom = dom.offsetParent</span><br><span class="line">    curLeft += dom.offsetLeft</span><br><span class="line">    curTop += dom.offsetTop</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> [curLeft, curTop]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/25/bfc与闭合内部浮动/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1300,125 +1422,6 @@
 </ul>
 <h5 id="触发BFC的方法（与触发hasLayout的部分差别来源于浏览器版本问题）"><a href="#触发BFC的方法（与触发hasLayout的部分差别来源于浏览器版本问题）" class="headerlink" title="触发BFC的方法（与触发hasLayout的部分差别来源于浏览器版本问题）"></a>触发BFC的方法（与触发hasLayout的部分差别来源于浏览器版本问题）</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">position: absolute | fixed</span><br><span class="line"><span class="built_in">float</span>: left|right</span><br><span class="line">display: inline-block | table-cell | table-caption | flex | inline-flex</span><br><span class="line">overflow: hidden|scroll|auto</span><br><span class="line">overflow-x|-y: hidden|scroll|auto</span><br></pre></td></tr></table></figure>
 <font face="微软雅黑" size="2" color="red">注：</font><br><font face="微软雅黑" size="2">通过解读上述规则，可以发现，BFC除了可以解决闭合浮动的问题外，还可以解决以下问题：<br>- 闭合浮动<br>- 同一BFC下，margin重叠问题<br>- 两栏自适应（左定宽，右自适应）</font>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/25/dom操作/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/25/dom操作/" itemprop="url">Dom增删改查隐藏技能</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-25T15:21:12+08:00">
-                2019-02-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="查询元素在视口中得绝对位置"><a href="#查询元素在视口中得绝对位置" class="headerlink" title="查询元素在视口中得绝对位置"></a>查询元素在视口中得绝对位置</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getAbsolutePos</span>(<span class="params">dom</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> curLeft = dom.offsetLeft || <span class="number">0</span></span><br><span class="line">  <span class="keyword">var</span> curTop = dom.offsetTop || <span class="number">0</span></span><br><span class="line">  <span class="keyword">while</span> (dom.offsetParent) &#123;</span><br><span class="line">    dom = dom.offsetParent</span><br><span class="line">    curLeft += dom.offsetLeft</span><br><span class="line">    curTop += dom.offsetTop</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> [curLeft, curTop]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           
         
       
